@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LifeLab</string>
+    <string name="ble_not_supported">BLE Not Supported</string>
+</resources>
