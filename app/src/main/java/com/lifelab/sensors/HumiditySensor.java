@@ -1,10 +1,15 @@
 package com.lifelab.sensors;
 
+import android.util.Log;
+
 import com.lifelab.coreclass.Sensor;
 
-/**
- * Created by E9949942 on 12/25/2016.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class HumiditySensor extends Sensor {
 
     public HumiditySensor(){
@@ -24,6 +29,9 @@ public class HumiditySensor extends Sensor {
         int a  = (upperByte << 8) + lowerByte;
         a = a - (a % 4);
         double output = (-6f) + 125f * (a / 65535f);
-        this.setSensorValue(output);
+        Log.i("Humidity ", "" + output);
+        List<Double> lValue = new ArrayList<>();
+        lValue.add(output);
+        this.setSensorValue(lValue);
     }
 }

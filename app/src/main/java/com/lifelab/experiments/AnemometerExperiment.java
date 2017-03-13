@@ -6,9 +6,9 @@ import com.lifelab.coreclass.Parameter;
 
 import java.util.ArrayList;
 
-/**
- * Created by E5254976 on 1/12/2017.
- */
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class AnemometerExperiment extends Experiment {
     public AnemometerExperiment(){
         super(  "TestExp1",

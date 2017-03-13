@@ -3,11 +3,15 @@ package com.lifelab.sensors;
 import android.util.Log;
 
 import com.lifelab.coreclass.Sensor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.Math.pow;
 
-/**
- * Created by E9949942 on 12/25/2016.
- */
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class BarometerSensor extends Sensor {
 
     public BarometerSensor(){
@@ -34,9 +38,11 @@ public class BarometerSensor extends Sensor {
             exponent = (sfloat >> 12) & 0xFF;
             double magnitude = pow(2.0f, exponent);
             output = (mantissa * magnitude) / 100.0f;
-            Log.i("Pressure ", "" + output);
         }
-        this.setSensorValue(output/100);
+        Log.i("Pressure ", "" + output/100);
+        List<Double> lValue = new ArrayList<>();
+        lValue.add(output / 100);
+        this.setSensorValue(lValue);
     }
 
     private Integer twentyFourBitUnsignedAtOffset(byte[] c, int offset) {

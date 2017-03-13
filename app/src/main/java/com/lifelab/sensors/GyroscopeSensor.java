@@ -4,10 +4,12 @@ import android.util.Log;
 
 import com.lifelab.coreclass.Sensor;
 
-/**
- * Created by E5254976 on 1/12/2017.
- * This
- */
+import java.util.ArrayList;
+import java.util.List;
+
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class GyroscopeSensor extends Sensor {
     public GyroscopeSensor(){
         super (
@@ -26,9 +28,14 @@ public class GyroscopeSensor extends Sensor {
         double x = (sensorValue[1]<<8) + sensorValue[0];
         double y = (sensorValue[3]<<8) + sensorValue[2];
         double z = (sensorValue[5]<<8) + sensorValue[4];
-        Log.i("P1","x "+x/128.0);
-        Log.i("P1","y "+y/128.0);
-        Log.i("P1","z "+z/128.0);
+        Log.i("Gyro","x "+x/128.0);
+        Log.i("Gyro","y "+y/128.0);
+        Log.i("Gyro","z "+z/128.0);
+        List<Double> lValue = new ArrayList<>();
+        lValue.add(x/128.0);
+        lValue.add(y/128.0);
+        lValue.add(z/128.0);
+        this.setSensorValue(lValue);
 
     }
 }

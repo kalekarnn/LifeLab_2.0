@@ -23,8 +23,10 @@ import com.lifelab.R;
 import com.lifelab.experiments.AnemometerExperiment;
 import com.lifelab.coreclass.Experiment;
 import com.lifelab.coreclass.Parameter;
-import com.lifelab.experiments.testExp1;
 
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 12/20/2016.
+ **************************************************************************************************/
 public class ExperimentResult extends AppCompatActivity implements View.OnClickListener {
 
     int position;
@@ -99,18 +101,12 @@ public class ExperimentResult extends AppCompatActivity implements View.OnClickL
         switch (position){
             case 0:
                 Log.i("hi", "here" + position);
-                objExp = new testExp1();
+                objExp = new AnemometerExperiment();
                 //Intent i = new Intent(this,BLEServiceActivity.class);
 
                // startActivity(i);
                 break;
-            case 1:
-                Log.i("hi 1", "here 1" + position);
-                objExp = new AnemometerExperiment();
-                //Intent i = new Intent(this,BLEServiceActivity.class);
 
-                // startActivity(i);
-                break;
             default:
                 Log.i("hii","other");
                 break;

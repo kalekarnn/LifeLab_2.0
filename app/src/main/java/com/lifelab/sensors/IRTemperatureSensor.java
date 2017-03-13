@@ -4,11 +4,14 @@ import android.util.Log;
 
 import com.lifelab.coreclass.Sensor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.Math.pow;
 
-/**
- * Created by E9949942 on 12/25/2016.
- */
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class IRTemperatureSensor extends Sensor {
 
     public IRTemperatureSensor(){
@@ -27,7 +30,9 @@ public class IRTemperatureSensor extends Sensor {
         double target = extractTargetTemperature(sensorValue, ambient);
         double output = extractTargetTemperatureTMP007(sensorValue);
         Log.i("IR Temp ", "" + output);
-        this.setSensorValue(output);
+        List<Double> lValue = new ArrayList<>();
+        lValue.add(output);
+        this.setSensorValue(lValue);
     }
 
     private double extractAmbientTemperature(byte [] v) {

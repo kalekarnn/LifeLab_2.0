@@ -4,10 +4,12 @@ import android.util.Log;
 
 import com.lifelab.coreclass.Sensor;
 
-/**
- * Created by E5254976 on 1/12/2017.
- * This
- */
+import java.util.ArrayList;
+import java.util.List;
+
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class MagnetometerSensor extends Sensor {
     public MagnetometerSensor(){
         super (
@@ -29,10 +31,17 @@ public class MagnetometerSensor extends Sensor {
             Log.i("P1", "x " + x / (32768 / 4912));
             Log.i("P1", "y " + y / (32768 / 4912));
             Log.i("P1", "z " + z / (32768 / 4912));
+            List<Double> lValue = new ArrayList<>();
+            lValue.add(x/(32768 / 4912));
+            lValue.add(y/(32768 / 4912));
+            lValue.add(z/(32768 / 4912));
+            this.setSensorValue(lValue);
         }else {
-            Log.i("P1", "x " + 0);
-            Log.i("P1", "y " + 0);
-            Log.i("P1", "z " + 0);
+            List<Double> lValue = new ArrayList<>();
+            lValue.add(0.0);
+            lValue.add(0.0);
+            lValue.add(0.0);
+            this.setSensorValue(lValue);
         }
 
     }

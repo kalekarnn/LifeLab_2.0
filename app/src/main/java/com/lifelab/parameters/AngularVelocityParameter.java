@@ -6,10 +6,11 @@ import com.lifelab.coreclass.Sensor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-/**
- * Created by E5254976 on 1/12/2017.
- */
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class AngularVelocityParameter extends Parameter {
     public AngularVelocityParameter(){
         super(  "Angular Velocity",
@@ -25,7 +26,7 @@ public class AngularVelocityParameter extends Parameter {
     @Override
     public void calculateAndSet() {
         List<Sensor> listOfSensors = getListOfSensors();
-        double vel = listOfSensors.get(0).getSensorValue();
+        Map vel = listOfSensors.get(0).getSensorValue();
         this.setParameterValue(String.valueOf(vel));
     }
 }

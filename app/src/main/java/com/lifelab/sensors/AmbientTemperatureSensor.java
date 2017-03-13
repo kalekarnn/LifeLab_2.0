@@ -4,9 +4,12 @@ import android.util.Log;
 
 import com.lifelab.coreclass.Sensor;
 
-/**
- * Created by E9949942 on 12/25/2016.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class AmbientTemperatureSensor extends Sensor {
 
     public AmbientTemperatureSensor(){
@@ -23,7 +26,9 @@ public class AmbientTemperatureSensor extends Sensor {
     public void convertAndSet(byte[] sensorValue) {
         double output = extractAmbientTemperature(sensorValue);
         Log.i("Ambient Temp", "" + output);
-        this.setSensorValue(output);
+        List<Double> lValue = new ArrayList<>();
+        lValue.add(output);
+        this.setSensorValue(lValue);
     }
 
     private double extractAmbientTemperature(byte [] v) {

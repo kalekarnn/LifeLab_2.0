@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 12/20/2016.
+ **************************************************************************************************/
 public class BLEService extends Service implements BluetoothAdapter.LeScanCallback{
 
 

@@ -1,10 +1,15 @@
 package com.lifelab.sensors;
 
+import android.util.Log;
+
 import com.lifelab.coreclass.Sensor;
 
-/**
- * Created by E9949942 on 12/25/2016.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+/***************************************************************************************************
+ * @version 1.0 Created by E9949942 Narendra Kalekar on 3/13/2017.
+ **************************************************************************************************/
 public class OpticalSensor extends Sensor {
 
     public OpticalSensor(){
@@ -29,6 +34,9 @@ public class OpticalSensor extends Sensor {
         double magnitude = Math.pow(2.0f, exponent);
         double output = (mantissa * magnitude);
         output = output / 100.0f;
-        this.setSensorValue(output);
+        Log.i("Optical ", "" + output);
+        List<Double> lValue = new ArrayList<>();
+        lValue.add(output);
+        this.setSensorValue(lValue);
     }
 }
