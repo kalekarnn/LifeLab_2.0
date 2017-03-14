@@ -1,6 +1,5 @@
 package com.lifelab.experiments;
 
-import com.lifelab.parameters.AngularVelocityParameter;
 import com.lifelab.coreclass.Experiment;
 import com.lifelab.coreclass.Parameter;
 
@@ -19,7 +18,7 @@ public class AnemometerExperiment extends Experiment {
                 "Will See",
                 true,
                 new ArrayList<Parameter>(){{
-                    add(new AngularVelocityParameter());
+                    add(new AnemometerNoOfRotationsParameter());
                     }});
     }
     @Override
