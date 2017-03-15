@@ -53,7 +53,7 @@ public abstract class Sensor implements Serializable{
     }
 
     public Map<Long,List<Double>> getSensorValue() {
-        return sensorValue;
+        return this.sensorValue;
     }
 
     public byte[] getBitValue() {

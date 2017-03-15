@@ -1,5 +1,8 @@
 package com.lifelab.experiments;
 
+import com.lifelab.parameters.AnemometerDirectionParameter;
+import com.lifelab.parameters.AnemometerNoOfRotationsParameter;
+import com.lifelab.parameters.AnemometerRPMParameter;
 import com.lifelab.coreclass.Experiment;
 import com.lifelab.coreclass.Parameter;
 
@@ -18,7 +21,9 @@ public class AnemometerExperiment extends Experiment {
                 "Will See",
                 true,
                 new ArrayList<Parameter>(){{
-                    add(new AnemometerNoOfRotationsParameter());
+                    add(new AnemometerDirectionParameter());
+                    //add(new AnemometerNoOfRotationsParameter());
+                    //add(new AnemometerRPMParameter());
                     }});
     }
     @Override
