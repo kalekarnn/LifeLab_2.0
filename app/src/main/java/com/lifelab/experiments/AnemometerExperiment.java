@@ -22,8 +22,6 @@ public class AnemometerExperiment extends Experiment {
                 true,
                 new ArrayList<Parameter>(){{
                     add(new AnemometerDirectionParameter());
-                    //add(new AnemometerNoOfRotationsParameter());
-                    //add(new AnemometerRPMParameter());
                     }});
     }
     @Override

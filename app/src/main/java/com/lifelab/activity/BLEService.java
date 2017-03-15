@@ -140,7 +140,6 @@ public class BLEService extends Service implements BluetoothAdapter.LeScanCallba
             BluetoothGattCharacteristic characteristic;
             characteristic = gatt.getService(sensorList.get(mState).getUUID_SERV()).getCharacteristic(sensorList.get(mState).getUUID_CONF());
             characteristic.setValue(sensorList.get(mState).getBitValue());
-           // Log.i("Yogesh Config Byte ","Value:"+ sensorList.get(mState).getBitValue()[0]);
             gatt.writeCharacteristic(characteristic);
 
 
@@ -239,9 +238,11 @@ public class BLEService extends Service implements BluetoothAdapter.LeScanCallba
         @Override
         public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status) {
             super.onDescriptorWrite(gatt, descriptor, status);
-            advance();
-            enableNextSensor(gatt);
-            //readNextSensor(gatt);
+            Log.i("VALUE nk ", ""+gatt.getService(sensorList.get(mState).getUUID_SERV()).getUuid());
+            if(!gatt.getService(sensorList.get(mState).getUUID_SERV()).getUuid().equals(UUID.fromString("f000aa80-0451-4000-b000-000000000000"))){
+                advance();
+                enableNextSensor(gatt);
+            }
         }
     };
 }

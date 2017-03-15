@@ -41,6 +41,9 @@ public class MagnetometerSensor extends Sensor {
             lValue.add(0.0);
             lValue.add(0.0);
             lValue.add(0.0);
+            Log.i("P1", "x 0" );
+            Log.i("P1", "y 0" );
+            Log.i("P1", "z 0" );
             this.setSensorValue(lValue);
         }
 

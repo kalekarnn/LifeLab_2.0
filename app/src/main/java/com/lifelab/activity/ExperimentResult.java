@@ -165,9 +165,9 @@ public class ExperimentResult extends AppCompatActivity implements View.OnClickL
             case R.id.nextParameter:
                 Parameter nextParameter = objExp.getNextParameter();
                 pName.setText(nextParameter.getParameterName());
-                Log.i("NAME", nextParameter.getParameterName());
+                Log.i("NAME P", nextParameter.getParameterName());
                 pValue.setText(nextParameter.getParameterValue()+ "\n" + nextParameter.getParameterUnit());
-                Log.i("VALUE",nextParameter.getParameterValue());
+                Log.i("VALUE P",nextParameter.getParameterValue());
                 break;
 
             case R.id.prevParameter:
