@@ -185,25 +185,28 @@ public class BLEService extends Service implements BluetoothAdapter.LeScanCallba
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
             super.onCharacteristicRead(gatt, characteristic, status);
             for(int i=0;i<sensorList.size();i++){
-                Log.i("Read UUID VALUE ","UUID"+sensorList.get(i).getUUID_DATA());
-                Log.i("Read Char UUID VALUE ","Char UUID"+characteristic.getUuid());
+              //  Log.i("Read UUID VALUE ","UUID"+sensorList.get(i).getUUID_DATA());
+               // Log.i("Read Char UUID VALUE ","Char UUID"+characteristic.getUuid());
                 if(sensorList.get(i).getUUID_DATA().equals(characteristic.getUuid())){
                     Log.i("Read Char VALUE ","Char Value read"+characteristic.getValue());
                     byte[] data = characteristic.getValue();
-                    for(int ij = 0;ij<data.length;ij++)
-                        Log.i("P"+ij,"DATA "+data[ij]);
+                  //  for(int ij = 0;ij<data.length;ij++)
+                   //     Log.i("P"+ij,"DATA "+data[ij]);
                     // Integer upperByte = (int) characteristic.getValue()[0+1]; // // Interpret MSB as signed
                     // Log.i("P1","lowerByte"+lowerByte);
                     //  Log.i("P1","upperByte"+upperByte);
                     sensorList.get(i).convertAndSet(characteristic.getValue());
                     //refresh
+                    Log.i("NARENDRA SIZE1",""+parameterList.size());
                     for(int j=0;j<parameterList.size();j++){
+                        Log.i("CAS",""+parameterList.get(j));
                         parameterList.get(j).calculateAndSet();
                         Intent intent = new Intent();
                         intent.setAction(SEND_EXP_OBJ_ACTION);
                         intent.putExtra("EXPERIMENT_OBJ",objExperiment);
                         sendBroadcast(intent);
                     }
+                    Log.i("NARENDRA SIZE12",""+parameterList.size());
                 }
             }
             setNotifyNextSensor(gatt);
@@ -242,6 +245,8 @@ public class BLEService extends Service implements BluetoothAdapter.LeScanCallba
             if(!gatt.getService(sensorList.get(mState).getUUID_SERV()).getUuid().equals(UUID.fromString("f000aa80-0451-4000-b000-000000000000"))){
                 advance();
                 enableNextSensor(gatt);
+            }else{
+                readNextSensor(gatt);
             }
         }
     };

@@ -47,9 +47,9 @@ public class ExperimentResult extends AppCompatActivity implements View.OnClickL
             // Android M Permission check
             if (this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                // builder.setTitle("This app needs location access");
-                //builder.setMessage("Please grant location access so this app can detect beacons.");
-                //  builder.setPositiveButton();
+                builder.setTitle("This app needs location access");
+                builder.setMessage("Please grant location access so this app can detect beacons.");
+              //  builder.setPositiveButton(PERMISSION_REQUEST_COARSE_LOCATION,this);
                 builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @TargetApi(Build.VERSION_CODES.M)
                     @Override
@@ -140,7 +140,7 @@ public class ExperimentResult extends AppCompatActivity implements View.OnClickL
                 startService(i);
                 objExp.startExperiment();
                 pName.setText(objExp.getListOfParameters().get(0).getParameterName());
-                Log.i("VALUE P1 ", (objExp.getListOfParameters().get(0).getParameterValue()));
+              //  Log.i("VALUE P1 ", (objExp.getListOfParameters().get(0).getParameterValue()));
            /*     pName.post(new Runnable() {
                     @Override
                     public void run() {
@@ -148,7 +148,7 @@ public class ExperimentResult extends AppCompatActivity implements View.OnClickL
                     }
                 });
             */
-                pValue.setText(objExp.getListOfParameters().get(0).getParameterValue() + "\n" + objExp.getListOfParameters().get(0).getParameterUnit());
+                pValue.setText(""+objExp.getListOfParameters().get(0).getParameterValue() + "\n" + objExp.getListOfParameters().get(0).getParameterUnit());
                 start.setEnabled(false);
                 break;
 

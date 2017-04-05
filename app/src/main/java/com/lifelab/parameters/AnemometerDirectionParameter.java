@@ -27,30 +27,33 @@ public class AnemometerDirectionParameter extends Parameter {
                 "NA",
                 "Formula",
                 new ArrayList<Sensor>(){{
-                    add(new GyroscopeSensor());
+                    add(GyroscopeSensor.getInstance());
                 }}
         );
     }
 
     @Override
     public void calculateAndSet() {
-        List<Sensor> listOfSensors = getListOfSensors();
-        //Log.i("Sensors ", "" + listOfSensors.get(0));
-        Map mValue = listOfSensors.get(0).getSensorValue();
-        Set<Map.Entry<Long,List<Double>>> setValue = mValue.entrySet();
-        Iterator itr = setValue.iterator();
-        Map.Entry<Long,List<Double>> entry = null;
-        while (itr.hasNext()){
-           entry =  (Map.Entry)itr.next();
+        List<Sensor> listOfSensorsDir = getListOfSensors();
+        Log.i("Sensors ", "" + listOfSensorsDir.get(0));
+        Map mValueDir = listOfSensorsDir.get(0).getSensorValue();
+        Set<Map.Entry<Long,List<Double>>> setValueDir = mValueDir.entrySet();
+        Iterator itrDir = setValueDir.iterator();
+        Map.Entry<Long,List<Double>> entryDir = null;
+        while (itrDir.hasNext()){
+           entryDir =  (Map.Entry)itrDir.next();
         }
         String direction = "";
-        Log.i("Direction ", "" + entry.getValue().get(2));
-        if(Math.signum(entry.getValue().get(0)) > 0)
+        Log.i("Direction ", "" + entryDir.getValue().get(2));
+        if(Math.signum(entryDir.getValue().get(2)) > 0)
             direction = "CLOCKWISE";
-        else if(Math.signum(entry.getValue().get(0)) < 0)
+        else if(Math.signum(entryDir.getValue().get(2)) < 0)
             direction = "ANTI-CLOCKWISE";
         else
             direction = "NOT MOVING";
+        Log.i("Direction by END", "" + direction);
         this.setParameterValue(direction);
+        Log.i("Direction by END2", "" + direction);
+
     }
 }
