@@ -23,7 +23,7 @@ public class GyroscopeSensor extends Sensor {
         );
     }
 
-    //thred safe singleton implementation 
+    //thread safe singleton implementation 
     public static GyroscopeSensor getInstance(){
     if(gyroscopeSensor == null){
         synchronized (GyroscopeSensor.class){
